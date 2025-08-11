@@ -1,9 +1,9 @@
 ---
 # Display name
-title: 刘懿葳 Yiwei Liu
+title: Yiwei Liu
 
 # Name pronunciation (optional)
-name_pronunciation: Yiwei Liu
+name_pronunciation: ''
 
 # Full name (for SEO)
 first_name: Yiwei
