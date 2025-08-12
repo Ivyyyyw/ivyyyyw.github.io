@@ -11,7 +11,7 @@ last_name: Liu
 
 # Status emoji
 status:
-  icon: 🍵
+  icon: ''
 
 # Is this the primary user of the site?
 superuser: true
@@ -30,13 +30,12 @@ organizations:
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
+  # 换一下
   - icon: at-symbol
     url: 'mailto:yiw.liu@epfl.ch'
     label: E-mail Me
   # - icon: brands/x
   #   url: https://twitter.com/GetResearchDev
-  # - icon: brands/instagram
-  #   url: https://www.instagram.com/
   - icon: brands/github
     url: https://github.com/Ivyyyyw
   - icon: brands/linkedin
@@ -183,4 +182,5 @@ awards:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Hi! I'm a master student in Digital Humanities in EPFL. Previouly I obtained my Bachelor degree in Beijing Institue of Technology in Statistics.
+My main research intrest lies in LLMs evalauation and allignment.
