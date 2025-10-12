@@ -5,6 +5,16 @@
 {{ $pad := $b.design.spacing.padding | default (slice "0.75rem" "0" "0.75rem" "0") }}
 {{ $container := $b.design.container | default "max-w-6xl" }}
 
+{{/* Logo box sizes (configurable) */}}
+{{ $logoH := $b.design.logo.h | default "4rem" }}      {{/* ~64px */}}      {{/* ~48px */}}
+{{ $logoW := $b.design.logo.w | default "12rem" }}     {{/* ~192px */}}      {{/* ~144px */}}
+{{ $logoHsm := $b.design.logo.h_sm | default "4.5rem" }}
+{{ $logoWsm := $b.design.logo.w_sm | default "14rem" }}
+
+{{/* Typography (configurable) */}}
+{{ $companyText := $b.design.typography.company | default "text-[0.98rem] md:text-[1.05rem] font-medium" }}
+{{ $timeText := $b.design.typography.time | default "text-sm" }}
+
 {{/* Load person data */}}
 {{ $person_page_path := (printf "/authors/%s" ($b.content.username | default "admin")) }}
 {{ $person_page := site.GetPage $person_page_path }}
@@ -30,11 +40,60 @@
               <li class="mb-6 ms-4 sm:ms-6">
                 <span class="absolute -start-2 sm:-start-3 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary-100 dark:bg-primary-900 ring-4 sm:ring-8 ring-white dark:ring-gray-900"></span>
                 <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-0.5">{{ .position }}</h3>
-                <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">{{ .company_name }}</div>
-                <time class="block text-xs text-gray-500 dark:text-gray-400 mb-2">
-                  {{ with .date_start }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }} – {{ end }}
-                  {{ with .date_end }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }}{{ else }}{{ i18n "present" | default "Present" }}{{ end }}
+                
+                {{/* 公司信息：统一 logo 视觉尺寸（固定盒子 + object-contain） */}}
+                <div class="mb-1">
+                  {{ if .company_logo }}
+                    <div class="mb-2 flex items-center">
+                      {{ $logo := printf "/uploads/%s" .company_logo }}
+                      {{ if .company_url }}
+                        <a href="{{ .company_url }}" target="_blank" rel="noopener" class="block">
+                          <div class="block overflow-hidden" style="height: {{ $logoH }}; width: {{ $logoW }};">
+                            <img src="{{ $logo }}" alt="{{ .company_name }}" class="h-full w-full object-contain object-left" loading="lazy" decoding="async">
+                          </div>
+                          </a>
+                      {{ else }}
+                        <div class="block overflow-hidden" style="height: {{ $logoH }}; width: {{ $logoW }};">
+                          <img src="{{ $logo }}" alt="{{ .company_name }}" class="h-full w-full object-contain object-left" loading="lazy" decoding="async">
+                        </div>
+                      {{ end }}
+                    </div>
+                  {{ end }}
+                  <div>
+                    {{ if .company_url }}
+                      <a href="{{ .company_url }}" target="_blank" rel="noopener" class="{{ $companyText }} text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        {{ .company_name }}
+                      </a>
+                    {{ else }}
+                      <span class="{{ $companyText }} text-gray-600 dark:text-gray-300">{{ .company_name }}</span>
+                    {{ end }}
+                  </div>
+                </div>
+                
+                {{/* 灵活日期解析：支持 YYYY, YYYY-MM, YYYY-MM-DD */}}
+                <time class="block {{ $timeText }} text-gray-500 dark:text-gray-400 mb-2">
+                  {{ with .date_start }}
+                    {{ $date := string . }}
+                    {{ if eq (len $date) 4 }}
+                      {{ $date = printf "%s-01-01" $date }}
+                    {{ else if eq (len $date) 7 }}
+                      {{ $date = printf "%s-01" $date }}
+                    {{ end }}
+                    {{ (time $date) | time.Format ($b.design.date_format | default "January 2006") }} – 
+                  {{ end }}
+                  {{ with .date_end }}
+                    {{ $date := string . }}
+                    {{ if eq (len $date) 4 }}
+                      {{ $date = printf "%s-01-01" $date }}
+                    {{ else if eq (len $date) 7 }}
+                      {{ $date = printf "%s-01" $date }}
+                    {{ end }}
+                    {{ (time $date) | time.Format ($b.design.date_format | default "January 2006") }}
+                  {{ else }}
+                    {{ i18n "present" | default "Present" }}
+                  {{ end }}
                 </time>
+                
                 {{ with .summary }}
                   <div class="prose prose-sm sm:prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">{{ . | markdownify }}</div>
                 {{ end }}
@@ -50,11 +109,60 @@
               <li class="mb-6 ms-4 sm:ms-6">
                 <span class="absolute -start-2 sm:-start-3 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary-100 dark:bg-primary-900 ring-4 sm:ring-8 ring-white dark:ring-gray-900"></span>
                 <h4 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-0.5">{{ .area }}</h4>
-                <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">{{ .institution }}</div>
-                <time class="block text-xs text-gray-500 dark:text-gray-400 mb-2">
-                  {{ with .date_start }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }} – {{ end }}
-                  {{ with .date_end }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }}{{ else }}{{ i18n "present" | default "Present" }}{{ end }}
+                
+                {{/* 学校信息：统一 logo 视觉尺寸 */}}
+                <div class="mb-1">
+                  {{ if .institution_logo }}
+                    <div class="mb-2 flex items-center">
+                      {{ $logo := printf "/uploads/%s" .institution_logo }}
+                      {{ if .institution_url }}
+                        <a href="{{ .institution_url }}" target="_blank" rel="noopener" class="block">
+                          <div class="block overflow-hidden" style="height: {{ $logoH }}; width: {{ $logoW }};">
+                            <img src="{{ $logo }}" alt="{{ .institution }}" class="h-full w-full object-contain object-left" loading="lazy" decoding="async">
+                          </div>
+                        </a>
+                      {{ else }}
+                        <div class="block overflow-hidden" style="height: {{ $logoH }}; width: {{ $logoW }};">
+                          <img src="{{ $logo }}" alt="{{ .institution }}" class="h-full w-full object-contain object-left" loading="lazy" decoding="async">
+                        </div>
+                      {{ end }}
+                    </div>
+                  {{ end }}
+                  <div>
+                    {{ if .institution_url }}
+                      <a href="{{ .institution_url }}" target="_blank" rel="noopener" class="{{ $companyText }} text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        {{ .institution }}
+                      </a>
+                    {{ else }}
+                      <span class="{{ $companyText }} text-gray-600 dark:text-gray-300">{{ .institution }}</span>
+                    {{ end }}
+                  </div>
+                </div>
+                
+                {{/* 灵活日期解析 */}}
+                <time class="block {{ $timeText }} text-gray-500 dark:text-gray-400 mb-2">
+                  {{ with .date_start }}
+                    {{ $date := string . }}
+                    {{ if eq (len $date) 4 }}
+                      {{ $date = printf "%s-01-01" $date }}
+                    {{ else if eq (len $date) 7 }}
+                      {{ $date = printf "%s-01" $date }}
+                    {{ end }}
+                    {{ (time $date) | time.Format ($b.design.date_format | default "January 2006") }} – 
+                  {{ end }}
+                  {{ with .date_end }}
+                    {{ $date := string . }}
+                    {{ if eq (len $date) 4 }}
+                      {{ $date = printf "%s-01-01" $date }}
+                    {{ else if eq (len $date) 7 }}
+                      {{ $date = printf "%s-01" $date }}
+                    {{ end }}
+                    {{ (time $date) | time.Format ($b.design.date_format | default "January 2006") }}
+                  {{ else }}
+                    {{ i18n "present" | default "Present" }}
+                  {{ end }}
                 </time>
+                
                 {{ with .summary }}
                   <div class="prose prose-sm sm:prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">{{ . | markdownify }}</div>
                 {{ end }}

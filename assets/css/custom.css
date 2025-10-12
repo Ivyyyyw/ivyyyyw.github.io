@@ -81,6 +81,31 @@ article,
   font-weight: 400;
 }
 
+/* Biography 区域的链接样式 */
+.bio-text a,
+.prose a {
+  text-decoration: none !important;
+  color: #017c9f !important; /* sky-600 - 和 Master Student 一样的颜色 */
+  transition: all 0.2s ease !important;
+}
+
+.bio-text a:hover,
+.prose a:hover {
+  text-decoration: underline !important;
+  color: #036092 !important; /* sky-700 */
+}
+
+/* 深色模式下的链接样式 */
+.dark .bio-text a,
+.dark .prose a {
+  color: #6ac2d8 !important; /* sky-400 - 和深色模式下 Master Student 一样 */
+}
+
+.dark .bio-text a:hover,
+.dark .prose a:hover {
+  color: #b1e5fb !important; /* sky-300 */
+}
+
 /* 优化正文阅读体验 */
 .prose p,
 article p {

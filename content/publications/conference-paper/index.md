@@ -53,10 +53,10 @@ hugoblox:
 links:
   - type: pdf
     url: https://arxiv.org/pdf/2509.17054
-  - type: code/dataset
+  - type: code
     url: https://github.com/nii-cl/tactful-tom
-  # - type: video
-  #   url: https://youtube.com
+  - type: slides
+    url: https://tactfultom-do-llms-have--a3dyxho.gamma.site/
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.

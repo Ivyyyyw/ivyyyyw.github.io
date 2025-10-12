@@ -1,4 +1,4 @@
-{{/* Publications Custom Block: left title | right list; honors design.spacing & container */}}
+{{/* Publications Custom Block: left title | right list; honors design.spacing & container. Prefer JPG if present; safe-handling SVG. */}}
 {{ $b := .wcBlock }}
 
 {{/* Spacing & container */}}
@@ -26,10 +26,28 @@
       <div class="space-y-4 md:space-y-6">
         {{ range $publications }}
           <article class="flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-5 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
-            {{ $featured := .Resources.GetMatch "featured*" }}
-            {{ if $featured }}
-              <!-- 移动端: 全宽图片, 桌面端: 固定宽度 -->
-              <img src="{{ $featured.RelPermalink }}" alt="{{ .Title }}" class="w-full sm:w-24 h-48 sm:h-24 object-cover rounded-lg sm:shrink-0">
+            {{/* 资源选择顺序：JPG > JPEG > PNG > WEBP > SVG；也支持 Params.featured/url_image 作为兜底 */}}
+            {{ $jpg := .Resources.GetMatch "featured.jpg" }}
+            {{ $jpeg := .Resources.GetMatch "featured.jpeg" }}
+            {{ $png := .Resources.GetMatch "featured.png" }}
+            {{ $webp := .Resources.GetMatch "featured.webp" }}
+            {{ $svg := .Resources.GetMatch "featured.svg" }}
+            {{ $featured := or $jpg (or $jpeg (or $png (or $webp $svg))) }}
+            {{ $paramURL := or .Params.featured .Params.featured_image }}
+
+            {{ if or $featured $paramURL }}
+              {{ if $featured }}
+                {{ if eq $featured.MediaType.SubType "svg" }}
+                  <!-- SVG：直接原图，不做处理，避免 _gen 与清晰度问题；用 object-contain 保例比 -->
+                  <img src="{{ $featured.RelPermalink }}" alt="{{ .Title }}" class="w-full sm:w-24 h-48 sm:h-24 object-contain rounded-lg sm:shrink-0" loading="lazy" decoding="async">
+                {{ else }}
+                  <!-- 位图：直接引用原图（不调用 .Fill/.Resize），不会进入 _gen；可按需改为 object-cover -->
+                  <img src="{{ $featured.RelPermalink }}" alt="{{ .Title }}" class="w-full sm:w-24 h-48 sm:h-24 object-cover rounded-lg sm:shrink-0" loading="lazy" decoding="async">
+                {{ end }}
+              {{ else }}
+                <!-- Params 兜底：允许使用绝对或相对 URL（如 static 下 /images/featured.jpg） -->
+                <img src="{{ $paramURL }}" alt="{{ .Title }}" class="w-full sm:w-24 h-48 sm:h-24 object-cover rounded-lg sm:shrink-0" loading="lazy" decoding="async">
+              {{ end }}
             {{ end }}
 
             <div class="flex-1 min-w-0">
@@ -42,7 +60,6 @@
               </h3>
 
               {{ with .Params.authors }}
-                <!-- 移动端不截断, 桌面端截断 -->
                 <p class="text-sm text-gray-600 dark:text-gray-400 mb-1 sm:truncate">{{ delimit . ", " }}</p>
               {{ end }}
 
@@ -51,21 +68,54 @@
               {{ end }}
 
               {{ with .Params.abstract }}
-                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-2">
-                  {{ . | truncate 200 }}
-                </p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-2">{{ . | truncate 200 }}</p>
               {{ end }}
 
               <div class="flex gap-2 flex-wrap">
-                {{ with .Params.url }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded-full dark:bg-blue-900 dark:text-blue-200 hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors">📄 Paper</a>{{ end }}
-                {{ with .Params.url_pdf }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-red-600 bg-red-50 rounded-full dark:bg-red-900 dark:text-red-200 hover:bg-red-100 dark:hover:bg-red-800 transition-colors">📑 PDF</a>{{ end }}
-                {{ with .Params.url_code }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-green-600 bg-green-50 rounded-full dark:bg-green-900 dark:text-green-200 hover:bg-green-100 dark:hover:bg-green-800 transition-colors">💻 Code</a>{{ end }}
-                {{ with .Params.url_dataset }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded-full dark:bg-purple-900 dark:text-purple-200 hover:bg-purple-100 dark:hover:bg-purple-800 transition-colors">📊 Dataset</a>{{ end }}
+                {{/* 如果 front matter 提供 links: [{type: pdf|code|slides|dataset|paper|site, url: ...}]，则优先用它们渲染按钮 */}}
+                {{ if .Params.links }}
+                  {{ range .Params.links }}
+                    {{ $t := lower (printf "%v" .type) }}
+                    {{ $u := .url }}
+                    {{ if and $u (in (slice "pdf" "code" "slides" "dataset" "paper" "site") $t) }}
+                      {{/* 基础样式 + 按类型着色与标签 */}}
+                      {{ $base := "inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-full transition-colors ring-1 ring-inset" }}
+                      {{ $cls := printf "%s %s" $base "text-slate-700 ring-slate-300 hover:bg-slate-50 dark:text-slate-200 dark:ring-slate-600 dark:hover:bg-slate-700/50" }}
+                      {{ $label := upper $t }}
+                      {{ $icon := "🔗" }}
+                      {{ if eq $t "pdf" }}
+                        {{ $label = "PDF" }}
+                        {{ $icon = "📑" }}
+                      {{ else if eq $t "code" }}
+                        {{ $label = "CODE" }}
+                        {{ $icon = "💻" }}
+                      {{ else if eq $t "slides" }}
+                        {{ $label = "SLIDES" }}
+                        {{ $icon = "🎤" }}
+                      {{ else if eq $t "dataset" }}
+                        {{ $label = "DATASET" }}
+                        {{ $icon = "📊" }}
+                      {{ else if eq $t "paper" }}
+                        {{ $label = "PAPER" }}
+                        {{ $icon = "📄" }}
+                      {{ else if eq $t "site" }}
+                        {{ $label = "SITE" }}
+                        {{ $icon = "🌐" }}
+                      {{ end }}
+                      <a href="{{ $u }}" target="_blank" rel="noopener" class="{{ $cls }}">{{ $icon }}&nbsp;{{ $label }}</a>
+                    {{ end }}
+                  {{ end }}
+                {{ else }}
+                  {{/* 否则，回退到旧的独立字段 */}}
+                  {{ with .Params.url }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded-full dark:bg-blue-900 dark:text-blue-200 hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors">📄 Paper</a>{{ end }}
+                  {{ with .Params.url_pdf }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-red-600 bg-red-50 rounded-full dark:bg-red-900 dark:text-red-200 hover:bg-red-100 dark:hover:bg-red-800 transition-colors">📑 PDF</a>{{ end }}
+                  {{ with .Params.url_code }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-green-600 bg-green-50 rounded-full dark:bg-green-900 dark:text-green-200 hover:bg-green-100 dark:hover:bg-green-800 transition-colors">💻 Code</a>{{ end }}
+                  {{ with .Params.url_dataset }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded-full dark:bg-purple-900 dark:text-purple-200 hover:bg-purple-100 dark:hover:bg-purple-800 transition-colors">📊 Dataset</a>{{ end }}
+                  {{ with .Params.url_slides }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-orange-600 bg-orange-50 rounded-full dark:bg-orange-900 dark:text-orange-200 hover:bg-orange-100 dark:hover:bg-orange-800 transition-colors">🎤 Slides</a>{{ end }}
+                {{ end }}
               </div>
 
-              <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                {{ .Date.Format "January 2006" }}
-              </div>
+              <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ .Date.Format "January 2006" }}</div>
             </div>
           </article>
         {{ end }}
