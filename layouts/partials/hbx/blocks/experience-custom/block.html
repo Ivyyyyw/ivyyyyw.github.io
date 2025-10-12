@@ -13,11 +13,12 @@
 <section class="relative overflow-hidden"
   style="padding: {{ index $pad 0 }} {{ index $pad 1 }} {{ index $pad 2 }} {{ index $pad 3 }};">
   <div class="{{ $container }} mx-auto px-4">
-    <div class="grid items-start gap-6" style="grid-template-columns: 13rem 1fr;">
+    <!-- 响应式网格: 移动端单列, 桌面端双列 -->
+    <div class="grid items-start gap-6 md:grid-cols-1 lg:grid-cols-[13rem_1fr]">
       <!-- Title -->
-      <div class="sticky top-6">
+      <div class="lg:sticky lg:top-6">
         {{ with $b.content.title }}
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white m-0">{{ . }}</h2>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white m-0">{{ . }}</h2>
         {{ end }}
       </div>
 
@@ -26,16 +27,16 @@
         {{ if $person.work }}
           <ol class="relative w-full border-s border-gray-200 dark:border-gray-700">
             {{ range $person.work }}
-              <li class="mb-6 ms-6">
-                <span class="absolute -start-3 w-5 h-5 rounded-full bg-primary-100 dark:bg-primary-900 ring-8 ring-white dark:ring-gray-900"></span>
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-0.5">{{ .position }}</h3>
+              <li class="mb-6 ms-4 sm:ms-6">
+                <span class="absolute -start-2 sm:-start-3 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary-100 dark:bg-primary-900 ring-4 sm:ring-8 ring-white dark:ring-gray-900"></span>
+                <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-0.5">{{ .position }}</h3>
                 <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">{{ .company_name }}</div>
                 <time class="block text-xs text-gray-500 dark:text-gray-400 mb-2">
                   {{ with .date_start }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }} – {{ end }}
                   {{ with .date_end }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }}{{ else }}{{ i18n "present" | default "Present" }}{{ end }}
                 </time>
                 {{ with .summary }}
-                  <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">{{ . | markdownify }}</div>
+                  <div class="prose prose-sm sm:prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">{{ . | markdownify }}</div>
                 {{ end }}
               </li>
             {{ end }}
@@ -43,19 +44,19 @@
         {{ end }}
 
         {{ if $person.education }}
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">{{ i18n "education" | default "Education" }}</h3>
+          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">{{ i18n "education" | default "Education" }}</h3>
           <ol class="relative w-full border-s border-gray-200 dark:border-gray-700">
             {{ range $person.education }}
-              <li class="mb-6 ms-6">
-                <span class="absolute -start-3 w-5 h-5 rounded-full bg-primary-100 dark:bg-primary-900 ring-8 ring-white dark:ring-gray-900"></span>
-                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-0.5">{{ .area }}</h4>
+              <li class="mb-6 ms-4 sm:ms-6">
+                <span class="absolute -start-2 sm:-start-3 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary-100 dark:bg-primary-900 ring-4 sm:ring-8 ring-white dark:ring-gray-900"></span>
+                <h4 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-0.5">{{ .area }}</h4>
                 <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">{{ .institution }}</div>
                 <time class="block text-xs text-gray-500 dark:text-gray-400 mb-2">
                   {{ with .date_start }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }} – {{ end }}
                   {{ with .date_end }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }}{{ else }}{{ i18n "present" | default "Present" }}{{ end }}
                 </time>
                 {{ with .summary }}
-                  <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">{{ . | markdownify }}</div>
+                  <div class="prose prose-sm sm:prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">{{ . | markdownify }}</div>
                 {{ end }}
               </li>
             {{ end }}

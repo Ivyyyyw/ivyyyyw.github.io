@@ -70,5 +70,21 @@ hugo server -D --disableFastRender
 # Build for production
 hugo --minify
 ```
+## 📁 **File Management**
 
+### 📄 **CV/Resume**
+```bash
+/Users/liuyiwei/my-site/static/uploads/resume.pdf
+```
+### 🖼️ **Images & Media**
+```bash
+/Users/liuyiwei/my-site/content/authors/admin/avatar.png
+
+/Users/liuyiwei/my-site/assets/media/icons/
+  - nii_logo.png
+  - axa_logo.png
+
+/Users/liuyiwei/my-site/content/publications/conference-paper/featured.jpg
+```
+```
 
