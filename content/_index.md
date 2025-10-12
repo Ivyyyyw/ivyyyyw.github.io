@@ -57,6 +57,7 @@ sections:
       container: max-w-6xl
 
   - block: experience-custom
+    id: experience
     content:
       title: Experience
       username: admin

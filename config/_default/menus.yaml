@@ -13,7 +13,7 @@ main:
     weight: 20
 
   - name: Experience
-    url: /experience/       # 如果想也跳首页区块，可改成 /#experience（前提：区块 id=experience）
+    url: /#experience       # 如果想也跳首页区块，可改成 /#experience（前提：区块 id=experience）
     weight: 30
   
   - name: CV
