@@ -1,0 +1,72 @@
+{{/* Publications Custom Block: left title | right list; honors design.spacing & container */}}
+{{ $b := .wcBlock }}
+
+{{/* Spacing & container */}}
+{{ $pad := $b.design.spacing.padding | default (slice "0.75rem" "0" "0.75rem" "0") }}
+{{ $container := $b.design.container | default "max-w-6xl" }}
+
+{{/* Query publications and sort by date desc */}}
+{{ $publications := where site.RegularPages "Section" "publications" }}
+{{ $publications = where $publications ".Draft" false }}
+{{ $publications = sort $publications "Date" "desc" }}
+
+<section class="relative overflow-hidden"
+  style="padding: {{ index $pad 0 }} {{ index $pad 1 }} {{ index $pad 2 }} {{ index $pad 3 }};">
+  <div class="{{ $container }} mx-auto px-4">
+    <div class="grid items-start gap-6" style="grid-template-columns: 13rem 1fr;">
+      <!-- Title -->
+      <div class="sticky top-6">
+        {{ with $b.content.title }}
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white m-0">{{ . }}</h2>
+        {{ end }}
+      </div>
+
+      <!-- List -->
+      <div class="space-y-6">
+        {{ range $publications }}
+          <article class="flex gap-6 p-5 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+            {{ $featured := .Resources.GetMatch "featured*" }}
+            {{ if $featured }}
+              <img src="{{ $featured.RelPermalink }}" alt="{{ .Title }}" class="w-24 h-24 object-cover rounded-lg shrink-0">
+            {{ end }}
+
+            <div class="flex-1 min-w-0">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1 hover:text-blue-600 dark:hover:text-blue-400">
+                {{ if .Params.url }}
+                  <a href="{{ .Params.url }}" target="_blank" rel="noopener">{{ .Title }}</a>
+                {{ else }}
+                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                {{ end }}
+              </h3>
+
+              {{ with .Params.authors }}
+                <p class="text-gray-600 dark:text-gray-400 mb-1 truncate">{{ delimit . ", " }}</p>
+              {{ end }}
+
+              {{ with .Params.publication }}
+                <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">{{ . }}</p>
+              {{ end }}
+
+              {{ with .Params.abstract }}
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-2">
+                  {{ . | truncate 200 }}
+                </p>
+              {{ end }}
+
+              <div class="flex gap-2 flex-wrap">
+                {{ with .Params.url }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded-full dark:bg-blue-900 dark:text-blue-200">📄 Paper</a>{{ end }}
+                {{ with .Params.url_pdf }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-red-600 bg-red-50 rounded-full dark:bg-red-900 dark:text-red-200">📑 PDF</a>{{ end }}
+                {{ with .Params.url_code }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-green-600 bg-green-50 rounded-full dark:bg-green-900 dark:text-green-200">💻 Code</a>{{ end }}
+                {{ with .Params.url_dataset }}<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded-full dark:bg-purple-900 dark:text-purple-200">📊 Dataset</a>{{ end }}
+              </div>
+
+              <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                {{ .Date.Format "January 2006" }}
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

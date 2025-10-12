@@ -3,10 +3,15 @@
 # Documentation: https://docs.hugoblox.com/
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
+assets:
+  css:
+    - css/custom.css
+    
 # Appearance
 appearance:
   mode: system
-  color: indigo
+  # color: indigo
+  color: sky
 
 # SEO
 marketing:
@@ -14,8 +19,8 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
-    twitter: 'GetResearchDev'
+    description: ''
+    twitter: ''
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -35,7 +40,7 @@ header:
     show_search: true
     show_theme_chooser: true
     logo:
-      text: 'Your Name'
+      text: 'Yiwei Liu'
 
 # Site footer
 footer:

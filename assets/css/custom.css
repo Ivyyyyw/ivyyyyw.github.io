@@ -1,0 +1,141 @@
+.news-date {
+  color: #116d95; /* 这是 sky-500 的颜色值 */
+}
+
+/* 导入字体 - Fraunces + Lora */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600;700&display=swap');
+
+/* 全局字体设置 - 所有元素默认 Lora */
+* {
+  font-family: 'Lora', serif;
+}
+
+/* 所有标题使用 Fraunces */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* 大标题更粗 */
+h1 {
+  font-weight: 900 !important;
+  letter-spacing: -0.02em;
+}
+
+/* 中等标题 */
+h2, h3 {
+  font-weight: 700 !important;
+}
+
+/* 小标题 */
+h4, h5, h6 {
+  font-weight: 600 !important;
+}
+
+/* 特别针对页面中的名字和标题 */
+.resume-biography h1,
+.resume-biography h2,
+.resume-biography h3 {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 700 !important;
+}
+
+/* 导航栏 */
+nav,
+.navbar,
+.navbar-brand,
+.nav-link {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 600 !important;
+}
+
+/* 按钮和标签 */
+button,
+.btn,
+span[class*="badge"],
+span[class*="tag"] {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 600 !important;
+}
+
+/* 日期、小标签等次要信息 */
+.news-date,
+time,
+.text-gray-500,
+.text-gray-400 {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 500 !important;
+}
+
+/* 正文保持 Lora */
+body,
+p,
+.prose,
+article,
+.bio-text {
+  font-family: 'Lora', serif !important;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+/* 优化正文阅读体验 */
+.prose p,
+article p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* 代码字体 */
+code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
+}
+
+/* =============== 背景样式 =============== */
+
+/* Biography Section - 淡蓝色渐变到白色 */
+.bio-section {
+  background: linear-gradient(to bottom, #e5f4fc 0%, #ffffff 100%);
+}
+
+.dark .bio-section {
+  background: linear-gradient(to bottom, #0a1520 0%, #0a0a0a 100%);
+}
+
+/* News、Publications、Experience - 白色背景 */
+.news-section,
+.publications-section,
+.experience-section {
+  background-color: #ffffff;
+  position: relative;
+}
+
+.dark .news-section,
+.dark .publications-section,
+.dark .experience-section {
+  background-color: #0a0a0a;
+}
+
+/* 分隔线 */
+.news-section::before,
+.publications-section::before,
+.experience-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, 90%);
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d0e8f7, transparent);
+  opacity: 0.6;
+}
+
+.dark .news-section::before,
+.dark .publications-section::before,
+.dark .experience-section::before {
+  background: linear-gradient(to right, transparent, #1a3a4a, transparent);
+  opacity: 0.8;
+}

@@ -7,21 +7,15 @@ main:
   - name: Bio
     url: /
     weight: 10
-  - name: Papers
-    url: /#papers
-    weight: 11
-  - name: Talks
-    url: /#talks
-    weight: 12
-  - name: News
-    url: /#news
-    weight: 13
-  - name: Experience
-    url: experience/
+
+  - name: Publication
+    url: /#publications     # 跳到首页 Publications 区块（id 必须是 `publications`）
     weight: 20
-  - name: Projects
-    url: projects/
+
+  - name: Experience
+    url: /experience/       # 如果想也跳首页区块，可改成 /#experience（前提：区块 id=experience）
     weight: 30
-  - name: Courses
-    url: courses/
+  
+  - name: CV
+    url: /uploads/resume.pdf               # 我们做一个 /cv 页面来内嵌查看 PDF（比直接打开 PDF 更稳）
     weight: 40

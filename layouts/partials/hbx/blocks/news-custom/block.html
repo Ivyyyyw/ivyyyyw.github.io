@@ -1,0 +1,35 @@
+{{/* News Custom Block: left date | right text; honors design.spacing & container */}}
+{{ $b := .wcBlock }}
+
+{{/* Spacing & container */}}
+{{ $pad := $b.design.spacing.padding | default (slice "0.75rem" "0" "0.75rem" "0") }}
+{{ $container := $b.design.container | default "max-w-6xl" }}
+
+{{/* Column width for left date column (optional) */}}
+{{ $datew := $b.design.date_col | default "13rem" }}
+
+<section class="relative overflow-hidden"
+  style="padding: {{ index $pad 0 }} {{ index $pad 1 }} {{ index $pad 2 }} {{ index $pad 3 }};">
+  <div class="{{ $container }} mx-auto px-4">
+    <div class="grid items-start gap-6" style="grid-template-columns: {{ $datew }} 1fr;">
+      <!-- Title -->
+      <div class="sticky top-6">
+        {{ with $b.content.title }}
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white m-0">{{ . }}</h2>
+        {{ end }}
+      </div>
+
+      <!-- Items -->
+      <div class="space-y-4">
+        {{ range $b.content.items }}
+          <div class="flex items-baseline gap-6">
+            <div class="news-date font-semibold whitespace-nowrap">{{ .date }}</div>
+            <div class="prose prose-lg dark:prose-invert max-w-none leading-relaxed text-gray-900 dark:text-gray-100">
+              {{ .text | emojify | markdownify }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

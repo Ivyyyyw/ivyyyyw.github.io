@@ -1,0 +1,67 @@
+{{/* Experience Custom Block: left title | right timeline; honors design.spacing & container */}}
+{{ $b := .wcBlock }}
+
+{{/* Spacing & container */}}
+{{ $pad := $b.design.spacing.padding | default (slice "0.75rem" "0" "0.75rem" "0") }}
+{{ $container := $b.design.container | default "max-w-6xl" }}
+
+{{/* Load person data */}}
+{{ $person_page_path := (printf "/authors/%s" ($b.content.username | default "admin")) }}
+{{ $person_page := site.GetPage $person_page_path }}
+{{ $person := $person_page.Params }}
+
+<section class="relative overflow-hidden"
+  style="padding: {{ index $pad 0 }} {{ index $pad 1 }} {{ index $pad 2 }} {{ index $pad 3 }};">
+  <div class="{{ $container }} mx-auto px-4">
+    <div class="grid items-start gap-6" style="grid-template-columns: 13rem 1fr;">
+      <!-- Title -->
+      <div class="sticky top-6">
+        {{ with $b.content.title }}
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white m-0">{{ . }}</h2>
+        {{ end }}
+      </div>
+
+      <!-- Timeline -->
+      <div class="w-full">
+        {{ if $person.work }}
+          <ol class="relative w-full border-s border-gray-200 dark:border-gray-700">
+            {{ range $person.work }}
+              <li class="mb-6 ms-6">
+                <span class="absolute -start-3 w-5 h-5 rounded-full bg-primary-100 dark:bg-primary-900 ring-8 ring-white dark:ring-gray-900"></span>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-0.5">{{ .position }}</h3>
+                <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">{{ .company_name }}</div>
+                <time class="block text-xs text-gray-500 dark:text-gray-400 mb-2">
+                  {{ with .date_start }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }} – {{ end }}
+                  {{ with .date_end }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }}{{ else }}{{ i18n "present" | default "Present" }}{{ end }}
+                </time>
+                {{ with .summary }}
+                  <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">{{ . | markdownify }}</div>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ol>
+        {{ end }}
+
+        {{ if $person.education }}
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">{{ i18n "education" | default "Education" }}</h3>
+          <ol class="relative w-full border-s border-gray-200 dark:border-gray-700">
+            {{ range $person.education }}
+              <li class="mb-6 ms-6">
+                <span class="absolute -start-3 w-5 h-5 rounded-full bg-primary-100 dark:bg-primary-900 ring-8 ring-white dark:ring-gray-900"></span>
+                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-0.5">{{ .area }}</h4>
+                <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">{{ .institution }}</div>
+                <time class="block text-xs text-gray-500 dark:text-gray-400 mb-2">
+                  {{ with .date_start }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }} – {{ end }}
+                  {{ with .date_end }}{{ (time .) | time.Format ($b.design.date_format | default "January 2006") }}{{ else }}{{ i18n "present" | default "Present" }}{{ end }}
+                </time>
+                {{ with .summary }}
+                  <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">{{ . | markdownify }}</div>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ol>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
