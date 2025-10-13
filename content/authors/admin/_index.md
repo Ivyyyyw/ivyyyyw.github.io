@@ -197,7 +197,7 @@ I'm passionate about understanding how artificial intelligence systems work, wit
 
 Currently, I'm working with [Thibault Laugel](https://scholar.google.com/citations?user=GAKJBJYAAAAJ&hl=en) at AXA exploring test-time intervention methods for LLM alignment. During my exchange at [NII, Tokyo](https://www.nii.ac.jp/en/), I worked with Prof. [Saku Sugawara](https://penzant.net/) on evaluating LLMs' Theory of Mind reasoning in white lie understanding. Previously, at [IVIA lab, ETH Zürich](https://ivia.ethz.ch/) with [Robin Chan](https://chanr0.github.io/), under the supervision of Prof. [Mennatallah El-Assady](https://el-assady.com/) and Prof. [Frédéric Kaplan](https://people.epfl.ch/frederic.kaplan?lang=en), I was trying to understand better LLMs and human's handling of ambiguity.
 
-Outside research, I enjoy tennis🎾, baking🍰 and photography📷. You can see some of moments captured through my lens: [1](/uploads/photo1.JPG), [2](/uploads/photo1.JPG), [3](/uploads/photo2.JPG).
+Outside research, I enjoy tennis🎾, baking🍰 and photography📷. You can see some of moments captured through my lens: [1](/uploads/photo1.JPG), [2](/uploads/photo2.JPG), [3](/uploads/photo3.JPG).
 
 <div class="info-box">
 <span class="info-icon">📢</span>Feel free to reach out! I'm currently looking for a <strong>master's thesis opportunity starting March 2026</strong> and <strong>PhD positions starting in Fall 2026</strong>. I'd love to connect if you think there's a good match!
