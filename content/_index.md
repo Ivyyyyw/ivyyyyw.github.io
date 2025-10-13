@@ -7,7 +7,7 @@ type: landing
 
 design:
   # Default section spacing
-  spacing: '3rem'
+  spacing: '1.5rem'
 
 sections:
   - block: resume-biography-custom
@@ -43,7 +43,7 @@ sections:
     design:
       css_class: 'news-section'
       spacing:
-        padding: ["1.3rem","0","1.rem","0"]   # 上下留白
+        padding: ["1.25rem","0","1.25rem","0"]   # 上下留白
       container: max-w-6xl                        # 和 Bio 更接近的宽度
 
   - block: publications-custom

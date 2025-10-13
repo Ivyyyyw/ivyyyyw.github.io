@@ -47,11 +47,11 @@ profiles:
     url: https://scholar.google.com/citations?user=Jqtu6RYAAAAJ&hl=en&oi=sra
 
 
-# interests:
-#   - Large Language Models
-#   - AI for Social Good
-#   - AI Safety & Alignment
-#   - Cognitive Science
+interests:
+  - Large Language Models
+  - Safety & Alignment
+  - Cognitive Science
+  - AI for Social Good
 
 # education:
 #   - area: PhD Computer Science (AI Focus)
@@ -88,16 +88,26 @@ work:
     date_start: '2025-08-16'  # 加引号
     date_end: ''
     summary: |
-      Working on Knowledge Editing for LLMs.
+      Understand better test-time intervention methods for LLM alignment using interpretability tools like PatchScopes.
 
-  - position: Research Assistant
+
+  - position: Student Researcher
     company_name: National Institute of Informatics
     company_url: 'https://www.nii.ac.jp/en/'
     company_logo: 'NII-logo.png'
     date_start: '2024-09-26'  # 加引号
-    date_end: '2025-03-21'    # 加引号
+    date_end: ''    # 加引号
     summary: |
-      Research on Theory of Mind Evaluation of LLMs supervised by Prof. Saku Sugawara.
+      Evaluating LLMs' theory of mind reasoning abilities; currently exploring pragmatic reasoning methods to improve LLMs' clarification-seeking in ambiguous contexts.
+
+  - position: Semester Project Student
+    company_name: IVIA Lab, ETH Zürich
+    company_url: 'https://www.nii.ac.jp/en/'
+    company_logo: 'ETH_Zürich_logo.png'
+    date_start: '2024-06'
+    date_end: '2024-12'    # 加引号
+    summary: |
+      Developed an interactive visual resolution for syntactic ambiguity interpretation.
   
   - position: Investment Research Assistant
     company_name: Beijing Xianfeng Changqing Venture Capital (K2VC)
@@ -106,7 +116,7 @@ work:
     date_start: '2022-12'
     date_end: '2023-06'
     summary: |
-      Conducted in-depth industry research on LLMs and their applications, engaging with startups to evaluate innovation; authoring reports on advancements and emerging trends in the LLM ecosystem supporting investment decision.
+      Conducted industry research on LLMs and evaluated AI startups to support investment decisions.
 
   - position: Investment Research Assistant
     company_name: MiraclePlus (Former Y Combinator China) 
@@ -115,7 +125,7 @@ work:
     date_start: '2021-12'
     date_end: '2022-02'
     summary: |
-      Engaged with leading AI labs in China to understand frontier research directions; performed technical due diligence on investment targets including TensorOpera AI and Thewake Systems, leading to successful investments.
+      Engaged with leading AI labs in China to understand frontier research directions.
 
   - position: Algorithm Engineer Intern
     company_name: JD.com Explore Academy (AI Lab)
@@ -124,16 +134,16 @@ work:
     date_start: '2021-06'
     date_end: '2021-08'
     summary: |
-      Built Proof-of-Concept for JD.com × Nvidia Omniverse Virtual Retailer.
+      Built proof-of-concept for JD.com × Nvidia Omniverse virtual retailer using eye-tracking and ML for shelf optimization.
 
   - position: Consultant Intern
-    company_name: EY
+    company_name: Ernst & Young (EY)
     company_url: 'https://www.ey.com/'
     company_logo: 'ey_logo.svg'
     date_start: '2020-12'
     date_end: '2021-02'
     summary: |
-      Provided consulting services for enterprise clients.
+      Supported digital transformation consulting projects for enterprise clients.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
