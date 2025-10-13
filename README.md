@@ -88,13 +88,6 @@ links:
   - type: site          # 🌐 SITE
 ```
 
-**Image Priority Order**:
-1. `featured.svg` (vector, no processing)
-2. `featured.png` (resized to 800px width)
-3. `featured.jpg` (resized to 800px width)
-4. `featured.jpeg` (resized to 800px width)
-5. `featured.webp` (resized to 800px width)
-
 ## 🚀 **Development Commands**
 ```bash
 # My environment
