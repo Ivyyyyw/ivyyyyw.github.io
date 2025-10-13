@@ -215,3 +215,16 @@ code, pre {
   margin-right: 8px;
   font-size: 1.1em;
 }
+
+/* 会议名称样式 - 深绿色突出显示，使用 Fraunces 字体 */
+.conference-name {
+  color: #047857 !important;        /* emerald-700 - 深绿色 */
+  font-style: italic !important;
+  font-family: 'Fraunces', serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em;
+}
+
+.dark .conference-name {
+  color: #34d399 !important;        /* emerald-400 - 亮绿色 */
+}
