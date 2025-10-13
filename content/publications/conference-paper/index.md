@@ -51,12 +51,14 @@ hugoblox:
 
 # Custom links
 links:
-  - type: pdf
+  - type: paper
     url: https://arxiv.org/pdf/2509.17054
   - type: code
     url: https://github.com/nii-cl/tactful-tom
   - type: slides
     url: https://tactfultom-do-llms-have--a3dyxho.gamma.site/
+  - type: presentation
+    url: https://drive.google.com/file/d/1KlJdk3_Yy4sUEV3cbgnJK8FRKLFiuyvc/view?usp=sharing
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.

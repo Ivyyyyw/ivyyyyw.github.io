@@ -1,0 +1,102 @@
+{{ define "main" }}
+<div class="max-w-4xl mx-auto px-4 py-8">
+  <article>
+    <!-- Title -->
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">{{ .Title }}</h1>
+    
+    <!-- Authors -->
+    {{ with .Params.authors }}
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-2">
+        {{ delimit . ", " }}
+      </p>
+    {{ end }}
+    
+    <!-- Publication -->
+    {{ with .Params.publication }}
+      <p class="text-lg text-blue-600 dark:text-blue-400 font-medium mb-4">{{ . }}</p>
+    {{ end }}
+    
+    <!-- Date -->
+    {{ with .Date }}
+      <p class="text-sm text-gray-500 dark:text-gray-500 mb-6">{{ .Format "January 2, 2006" }}</p>
+    {{ end }}
+    
+    <!-- Featured Image -->
+    {{ $featured := .Resources.GetMatch "featured*" }}
+    {{ if $featured }}
+      <div class="mb-6">
+        {{ if eq $featured.MediaType.SubType "svg" }}
+          <img src="{{ $featured.RelPermalink }}" alt="{{ .Title }}" class="w-full max-w-2xl mx-auto rounded-lg" loading="lazy" decoding="async">
+        {{ else }}
+          {{ $resized := $featured.Resize "800x" }}
+          <img src="{{ $resized.RelPermalink }}" alt="{{ .Title }}" class="w-full max-w-2xl mx-auto rounded-lg shadow-sm" loading="lazy" decoding="async">
+        {{ end }}
+      </div>
+    {{ end }}
+    
+    <!-- Links/Buttons -->
+    {{ if .Params.links }}
+      <div class="flex gap-3 flex-wrap mb-8">
+        {{ range .Params.links }}
+          {{ $t := lower (printf "%v" .type) }}
+          {{ $u := .url }}
+          {{ if and $u (in (slice "pdf" "code" "slides" "presentation" "dataset" "paper" "site") $t) }}
+            {{ $base := "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors ring-1 ring-inset" }}
+            {{ $cls := printf "%s %s" $base "text-slate-700 ring-slate-300 hover:bg-slate-50 dark:text-slate-200 dark:ring-slate-600 dark:hover:bg-slate-700/50" }}
+            {{ $label := upper $t }}
+            {{ $icon := "🔗" }}
+            {{ if eq $t "pdf" }}
+              {{ $label = "PDF" }}
+              {{ $icon = "📑" }}
+            {{ else if eq $t "code" }}
+              {{ $label = "CODE" }}
+              {{ $icon = "💻" }}
+            {{ else if eq $t "slides" }}
+              {{ $label = "SLIDES" }}
+              {{ $icon = "📝" }}
+            {{ else if eq $t "presentation" }}
+              {{ $label = "PRESENTATION" }}
+              {{ $icon = "🎤" }}
+            {{ else if eq $t "dataset" }}
+              {{ $label = "DATASET" }}
+              {{ $icon = "📊" }}
+            {{ else if eq $t "paper" }}
+              {{ $label = "PAPER" }}
+              {{ $icon = "📄" }}
+            {{ else if eq $t "site" }}
+              {{ $label = "SITE" }}
+              {{ $icon = "🌐" }}
+            {{ end }}
+            <a href="{{ $u }}" target="_blank" rel="noopener" class="{{ $cls }}">{{ $icon }}&nbsp;{{ $label }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+    
+    <!-- Abstract -->
+    {{ with .Params.abstract }}
+      <div class="mb-8">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Abstract</h2>
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">{{ . }}</p>
+      </div>
+    {{ end }}
+    
+    <!-- Tags -->
+    {{ with .Params.tags }}
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Tags</h3>
+        <div class="flex gap-2 flex-wrap">
+          {{ range . }}
+            <span class="px-3 py-1 text-sm bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+    
+    <!-- Content -->
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      {{ .Content }}
+    </div>
+  </article>
+</div>
+{{ end }}

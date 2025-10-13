@@ -42,6 +42,10 @@
   - publications-custom/block.html (Publications section layout)
   - experience-custom/block.html (Experience section layout)
   - resume-biography-custom/block.html (Bio section layout)
+
+# Page Templates (Individual Page Layouts)
+/Users/liuyiwei/my-site/layouts/publications/
+  - single.html (Individual publication page layout)
 ```
 
 ## 🔧 **Common Editing Tasks**
@@ -57,6 +61,39 @@
 - **Block layouts**: Edit `layouts/partials/hbx/blocks/*/block.html`
 - **Spacing between blocks**: Edit `content/_index.md` → design → spacing
 - **Theme color**: Edit `config/_default/params.yaml` → color
+
+## 📄 **Publication Pages**
+
+### 🎯 **Individual Publication Layout**
+```bash
+/Users/liuyiwei/my-site/layouts/publications/single.html
+```
+**Purpose**: Custom template for individual publication pages (e.g., `/publications/conference-paper/`)
+
+**Features**:
+- ✅ **Custom Link Buttons**: Supports PDF, Code, Slides, Presentation, Dataset, Paper, Site
+- ✅ **SVG Image Priority**: Automatically prefers `featured.svg` over PNG/JPG
+- ✅ **Responsive Design**: Mobile-friendly layout with proper spacing
+- ✅ **Dark Mode Support**: Full dark/light theme compatibility
+
+**Supported Link Types** (in `content/publications/*/index.md`):
+```yaml
+links:
+  - type: pdf           # 📑 PDF
+  - type: code          # 💻 CODE  
+  - type: slides        # 📝 SLIDES
+  - type: presentation  # 🎤 PRESENTATION
+  - type: dataset       # 📊 DATASET
+  - type: paper         # 📄 PAPER
+  - type: site          # 🌐 SITE
+```
+
+**Image Priority Order**:
+1. `featured.svg` (vector, no processing)
+2. `featured.png` (resized to 800px width)
+3. `featured.jpg` (resized to 800px width)
+4. `featured.jpeg` (resized to 800px width)
+5. `featured.webp` (resized to 800px width)
 
 ## 🚀 **Development Commands**
 ```bash
