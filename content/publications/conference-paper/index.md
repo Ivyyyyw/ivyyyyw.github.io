@@ -52,7 +52,7 @@ hugoblox:
 # Custom links
 links:
   - type: paper
-    url: https://arxiv.org/pdf/2509.17054
+    url: https://arxiv.org/abs/2509.17054
   - type: code
     url: https://github.com/nii-cl/tactful-tom
   - type: slides
