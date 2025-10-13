@@ -44,15 +44,14 @@ profiles:
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/yiwei-liu-542667231/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=alexjohnson
-  # - icon: academicons/orcid
-  #   url: https://orcid.org/0000-0002-1825-0097
+    url: https://scholar.google.com/citations?user=Jqtu6RYAAAAJ&hl=en&oi=sra
 
-interests:
-  - Large Language Models
-  - AI for Socialgood
-  - Natural Language Processing
-  - Cognition Science/Phyicology
+
+# interests:
+#   - Large Language Models
+#   - AI for Social Good
+#   - AI Safety & Alignment
+#   - Cognitive Science
 
 # education:
 #   - area: PhD Computer Science (AI Focus)
@@ -70,7 +69,7 @@ interests:
 #     date_end: 2015-05-31
 #     summary: |
 #       GPA: 4.0/4.0
-
+#
 #       Specialized in machine learning and robotics.
 #   - area: BS Computer Science
 #     institution: MIT
@@ -78,8 +77,9 @@ interests:
 #     date_end: 2013-05-31
 #     summary: |
 #       GPA: 3.9/4.0
-
+#
 #       Minored in Mathematics. President of AI Club.
+
 work:
   - position: Research Intern
     company_name: AXA Group Operation
@@ -130,10 +130,11 @@ work:
     company_name: EY
     company_url: 'https://www.ey.com/'
     company_logo: 'ey_logo.svg'
-    date_start: '2020-12'     # 这个日期看起来可能不对？和上面重复了
+    date_start: '2020-12'
     date_end: '2021-02'
     summary: |
       Provided consulting services for enterprise clients.
+
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 # skills:
@@ -180,17 +181,14 @@ work:
 
 
 ### About Me
+Hi! I'm Yiwei, a final-year master student at [EPFL Digital Humanities](https://www.epfl.ch/schools/cdh/research-2/dhi/), previously obtaining my Bachelor degree in Statistics from [Beijing Institute of Technology](https://english.bit.edu.cn/).
 
-Hi! I'm Yiwei, a final-year master student at [EPFL](https://www.epfl.ch/schools/cdh/research-2/dhi/).
-Previously I obtained my Bachelor degree from [Beijing Institute of Technology](https://www.bit.edu.cn/) in Statistics.
+I'm passionate about understanding how artificial intelligence systems work, with the goal of building safe AI that truly aligns with human values and behaviors. To achieve this, my work focus on leveraging insights from human behavior and cognitive abilities—such as social reasoning, psychology, and linguistics—to evaluate and align large language models.
 
+Currently, I'm working with [Thibault Laugel](https://scholar.google.com/citations?user=GAKJBJYAAAAJ&hl=en) at AXA exploring test-time intervention methods for LLM alignment. During my exchange at [NII, Tokyo](https://www.nii.ac.jp/en/), I worked with Prof. [Saku Sugawara](https://penzant.net/) on evaluating LLMs' Theory of Mind reasoning in white lie understanding. Previously, at [IVIA lab, ETH Zürich](https://ivia.ethz.ch/) with [Robin Chan](https://chanr0.github.io/), under the supervision of Prof. [Mennatallah El-Assady](https://el-assady.com/) and Prof. [Frédéric Kaplan](https://people.epfl.ch/frederic.kaplan?lang=en), I was trying to understand better LLMs and human's handling of ambiguity.
 
-My main research interest lies in LLMs evaluation and alignment. My motivation comes from I want to augument AI with human's coginition tools and reasonning ability. Because I want to build LLMs with cognition ability not just math.
+Outside research, I enjoy tennis🎾, baking🍰 and photography📷. You can see some of moments captured through my lens: [1](/uploads/photo5.JPG), [2](/uploads/photo6.JPG), [3](/uploads/photo7.JPG).
 
-
-Currently I'm working with [Thibault Laugel](https://scholar.google.com/citations?user=GAKJBJYAAAAJ&hl=en) at AXA exploring knowlegde editing methods for LLMs alligbment. Before, during my exchange semester in [NII, Tokyo](https://www.nii.ac.jp/en/), I worked with Prof. [Saku Sugawara](https://penzant.net/) on LLMs Theory of Mind ability evaluation. And I also had the pleasure of working as a research student at [IVIA lab](https://ivia.ethz.ch/) [@ETH Zürich](https://ethz.ch/en.html)  with [Robin Chan](https://chanr0.github.io/), under the supervision of Prof. [Mennatallah El-Assady](https://el-assady.com/) and Prof. [Frédéric Kaplan](https://people.epfl.ch/frederic.kaplan?lang=en), where I was trying to understand better of ambiguity understanding of LLMs and I exploed visualization of syntactic Ambiguity understanding from linguistics and HCI perspective.
-
-Outside research, I enjoy tennis🎾, baking🍰 and photography📷. You can see some of moments captured through my lens: [1](/uploads/photo1.jpg), [2](/uploads/photo2.jpg), [3](/uploads/photo3.jpg), [4](/uploads/photo7.jpg), [5](/uploads/photo5.jpg).
-
-
-Feel free to reach out to me: I'm currently searching for thesis chance start from March 2026 and PhD position start from nexr Autumn, please let me know if there's match, I'm looking for more chances and potential collaboration!
+<div class="info-box">
+<span class="info-icon">📢</span>Feel free to reach out! I'm currently looking for a <strong>master's thesis opportunity starting March 2026</strong> and <strong>PhD positions starting in Fall 2026</strong>. I'd love to connect if you think there's a good match!
+</div>
