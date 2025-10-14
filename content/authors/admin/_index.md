@@ -82,7 +82,7 @@ interests:
 
 work:
   - position: Research Intern
-    company_name: AXA Group Operation Research
+    company_name: AXA GO Rev Research
     company_url: 'https://axa-rev-research.github.io/'
     company_logo: 'axa_logo.jpg'
     date_start: '2025-08-16'  # 加引号
@@ -191,9 +191,9 @@ work:
 
 
 ### About Me
-Hi! I'm Yiwei, a final-year master student at [EPFL Digital Humanities](https://www.epfl.ch/schools/cdh/research-2/dhi/), previously obtaining my Bachelor degree in Statistics from [Beijing Institute of Technology](https://english.bit.edu.cn/).
+Hi! I'm Yiwei, a final-year master student at [EPFL Digital Humanities](https://www.epfl.ch/schools/cdh/research-2/dhi/). Previously, I obtained my Bachelor degree in Statistics from [Beijing Institute of Technology](https://english.bit.edu.cn/).
 
-I'm passionate about understanding how artificial intelligence systems work, with the goal of building safe AI that truly aligns with human values and behaviors. To achieve this, my work focus on leveraging insights from human behavior and cognitive abilities—such as social reasoning, psychology, and linguistics—to evaluate and align large language models.
+I'm passionate about understanding how artificial intelligence systems work, with the goal of building safe AI that truly aligns with human values and behaviors. To achieve this, my work focuses on leveraging insights from human behavior and cognitive abilities—such as social reasoning, psychology, and linguistics—to evaluate and align large language models.
 
 Currently, I'm working with [Dr. Thibault Laugel](https://scholar.google.com/citations?user=GAKJBJYAAAAJ&hl=en) at [AXA GO Research](https://axa-rev-research.github.io/) exploring test-time intervention methods for LLM alignment. During my exchange at the [National Institute of Informatics](https://www.nii.ac.jp/en/) in Tokyo, I worked with [Prof. Saku Sugawara](https://penzant.net/) on evaluating LLMs' Theory of Mind reasoning in white lie understanding. The resulting paper [TactfulToM](https://arxiv.org/abs/2509.17054) was accepted at <em class="conference-name">EMNLP 2025 (Main)</em>. Previously, at [IVIA lab, ETH Zürich](https://ivia.ethz.ch/) with [Robin Chan](https://chanr0.github.io/), under the supervision of [Prof. Mennatallah El-Assady](https://el-assady.com/) and [Prof. Frédéric Kaplan](https://people.epfl.ch/frederic.kaplan?lang=en), I was trying to better understand LLMs and human's handling of ambiguity.
 
