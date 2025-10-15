@@ -1,18 +1,21 @@
 ---
 title: "Stats (Private)"
 draft: false
-# 阻止搜索引擎索引
+# 不出现在列表/聚合页
 _build:
   list: never
   render: always
   publishResources: true
+# 不加入菜单
+menu: {}
+# 站内搜索（若主题支持）排除
+search_exclude: true
+# 我们自定义个标记，配合第 2 步在 <head> 里加 noindex
+noindex: true
 # 不在站点导航里展示
 toc: false
 sharing: false
-# 添加 noindex meta 标签
 ---
-
-<meta name="robots" content="noindex,nofollow">
 
 <div style="max-width: 860px; margin: 24px auto; text-align: center;">
   <h2 style="color: #374151; margin-bottom: 2rem;">📊 Visitor Statistics</h2>
