@@ -1,6 +1,86 @@
-<!-- Hide MapMyVisitors widget globally -->
+<!-- Hide MapMyVisitors widget globally with comprehensive selectors -->
 <style>
-  #mapmyvisitors, .mapmyvisitors-widget, .mmv-container { display: none !important; }
+  /* Hide all possible MapMyVisitors elements */
+  #mapmyvisitors, 
+  .mapmyvisitors-widget, 
+  .mmv-container,
+  [id*="mapmyvisitors"],
+  [class*="mapmyvisitors"],
+  [class*="mmv"],
+  div[style*="mapmyvisitors"],
+  iframe[src*="mapmyvisitors"],
+  script[src*="mapmyvisitors"] + div,
+  script[src*="mapmyvisitors"] + span,
+  script[src*="mapmyvisitors"] + img { 
+    display: none !important; 
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  /* Hide any dynamically created elements */
+  body > div:last-child[style*="position"],
+  body > div:last-child[style*="z-index"] {
+    display: none !important;
+  }
 </style>
+
 <script id="mapmyvisitors" type="text/javascript"
         src="//mapmyvisitors.com/map.js?d=GIGVYtMFETiplLXRv1J3KrX-flUxOvIow62-A39cMqQ&cl=ffffff&w=a"></script>
+
+<!-- Additional JavaScript to hide dynamically created elements -->
+<script>
+(function() {
+  // Function to hide MapMyVisitors elements
+  function hideMapElements() {
+    // Hide by common patterns
+    const selectors = [
+      '[id*="mapmyvisitors"]',
+      '[class*="mapmyvisitors"]', 
+      '[class*="mmv"]',
+      'div[style*="mapmyvisitors"]',
+      'iframe[src*="mapmyvisitors"]'
+    ];
+    
+    selectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        el.style.display = 'none';
+        el.style.visibility = 'hidden';
+        el.style.opacity = '0';
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
+      });
+    });
+    
+    // Hide any suspicious divs that might be the map
+    const allDivs = document.querySelectorAll('div');
+    allDivs.forEach(div => {
+      if (div.innerHTML && div.innerHTML.includes('mapmyvisitors')) {
+        div.style.display = 'none';
+      }
+    });
+  }
+  
+  // Run immediately
+  hideMapElements();
+  
+  // Run after DOM is loaded
+  document.addEventListener('DOMContentLoaded', hideMapElements);
+  
+  // Run periodically to catch dynamically created elements
+  setInterval(hideMapElements, 1000);
+  
+  // Use MutationObserver to catch new elements
+  if (window.MutationObserver) {
+    const observer = new MutationObserver(hideMapElements);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+})();
+</script>
