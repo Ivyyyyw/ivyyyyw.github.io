@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /stats/
+
+Sitemap: https://ivyyyyw.github.io/sitemap.xml
