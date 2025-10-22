@@ -77,7 +77,6 @@ interests:
 #     date_end: 2013-05-31
 #     summary: |
 #       GPA: 3.9/4.0
-#
 #       Minored in Mathematics. President of AI Club.
 
 work:
@@ -88,16 +87,18 @@ work:
     date_start: '2025-08-16'  # 加引号
     date_end: ''
     summary: |
-      Understand better test-time intervention methods for LLM alignment using interpretability tools like PatchScopes.
+      Supervisor: Dr. Thibault Laugel\
+      Understand better test-time intervention methods for LLMs alignment using interpretability tools like Logit Lens and PatchScopes.
 
 
-  - position: Student Researcher
+  - position: Visiting Student
     company_name: National Institute of Informatics
     company_url: 'https://www.nii.ac.jp/en/'
     company_logo: 'NII_logo.png'
     date_start: '2024-09-26'  # 加引号
     date_end: ''    # 加引号
     summary: |
+      Supervisor: Prof. Saku Sugawara\
       Evaluating LLMs' theory of mind reasoning abilities; currently exploring pragmatic reasoning methods to improve LLMs' clarification-seeking in ambiguous contexts.
 
   - position: Semester Project Student
@@ -107,6 +108,7 @@ work:
     date_start: '2024-06'
     date_end: '2024-12'    # 加引号
     summary: |
+      Supervisor: Robin Chan, Prof. Mennatallah El-Assady and Prof. Frédéric Kaplan\
       Developed an interactive visual resolution for syntactic ambiguity interpretation.
   
   - position: Investment Research Assistant
@@ -195,7 +197,7 @@ Hi! I'm Yiwei, a final-year master student at [EPFL Digital Humanities](https://
 
 I'm passionate about understanding how artificial intelligence systems work, with the goal of building safe AI that truly aligns with human values and behaviors. To achieve this, my work focuses on distilling insights from human behavior and cognitive abilities, such as social reasoning, psychology, and linguistics, to evaluate and align large language models.
 
-Currently, I'm working with [Dr. Thibault Laugel](https://scholar.google.com/citations?user=GAKJBJYAAAAJ&hl=en) at [AXA Rev Research](https://axa-rev-research.github.io/) investigating intervention methods for LLM alignment. During my exchange at the [National Institute of Informatics](https://www.nii.ac.jp/en/) in Tokyo, I worked with [Prof. Saku Sugawara](https://penzant.net/) on evaluating LLMs' Theory of Mind reasoning in white lie understanding. The resulting paper [TactfulToM](https://arxiv.org/abs/2509.17054) was accepted at <em class="conference-name">EMNLP 2025 (Main)</em>. Previously, at [IVIA lab, ETH Zürich](https://ivia.ethz.ch/) with [Robin Chan](https://chanr0.github.io/), under the supervision of [Prof. Mennatallah El-Assady](https://el-assady.com/) and [Prof. Frédéric Kaplan](https://people.epfl.ch/frederic.kaplan?lang=en), I was trying to better understand LLMs and human's handling of ambiguity.
+Currently, I'm working with [Dr. Thibault Laugel](https://scholar.google.com/citations?user=GAKJBJYAAAAJ&hl=en) at [AXA Rev Research](https://axa-rev-research.github.io/) investigating intervention methods for LLM alignment. During my exchange at the [National Institute of Informatics](https://www.nii.ac.jp/en/) in Tokyo, I worked with [Prof. Saku Sugawara](https://penzant.net/) and [Dr. Emma Jane Pretty](https://scholar.google.com/citations?user=LPP8dHwAAAAJ&hl=en)on evaluating LLMs' Theory of Mind reasoning in white lie understanding. The resulting paper [TactfulToM](https://arxiv.org/abs/2509.17054) was accepted at <em class="conference-name">EMNLP 2025 (Main)</em>. Previously, at [IVIA lab, ETH Zürich](https://ivia.ethz.ch/) with [Robin Chan](https://chanr0.github.io/), under the supervision of [Prof. Mennatallah El-Assady](https://el-assady.com/) and [Prof. Frédéric Kaplan](https://people.epfl.ch/frederic.kaplan?lang=en), I was trying to better understand LLMs and human's handling of ambiguity.
 
 Outside research, I enjoy tennis🎾, baking🍰 and photography📷. You can see some of moments captured through my lens: [1](/uploads/photo1.jpg), [2](/uploads/photo2.jpg), [3](/uploads/photo3.jpg).
 
