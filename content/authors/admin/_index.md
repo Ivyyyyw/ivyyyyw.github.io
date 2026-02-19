@@ -203,5 +203,5 @@ Currently, I'm working with [Dr. Thibault Laugel](https://thibaultlaugel.github.
 Outside research, I enjoy tennis🎾, baking🍰 and photography📷. You can see some of moments captured through my lens: [1](/uploads/photo1.jpg), [2](/uploads/photo2.jpg), [3](/uploads/photo3.jpg).
 
 <div class="info-box">
-<span class="info-icon">📢</span>Feel free to reach out! I'm currently looking for a <strong>master's thesis opportunity starting March 2026</strong> and <strong>PhD positions starting in Fall 2026</strong>. I'd love to connect if you think there's a good match!
+<span class="info-icon">📢</span>Feel free to reach out! I'm currently looking for a <strong>PhD positions starting in Fall 2026</strong>. I'd love to connect if you think there's a good match!
 </div>
