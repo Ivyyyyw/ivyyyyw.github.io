@@ -58,8 +58,7 @@ links:
   - type: slides
     url: https://tactfultom-do-llms-have--a3dyxho.gamma.site/
   - type: presentation
-    url: https://drive.google.com/file/d/1KlJdk3_Yy4sUEV3cbgnJK8FRKLFiuyvc/view?usp=sharing
-
+    url: https://underline.io/lecture/131024-tactfultom-do-llms-have-the-theory-of-mind-ability-to-understand-white-liesquestion
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 image:
