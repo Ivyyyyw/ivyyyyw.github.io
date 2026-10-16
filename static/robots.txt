@@ -1,4 +1,10 @@
+User-agent: Googlebot
+Disallow: /stats/
+Disallow: /*.pdf$
+Disallow: /*.xml$
+
+User-agent: Googlebot-Image
+Disallow: /
+
 User-agent: *
 Disallow: /stats/
-
-Sitemap: https://ivyyyyw.github.io/sitemap.xml
