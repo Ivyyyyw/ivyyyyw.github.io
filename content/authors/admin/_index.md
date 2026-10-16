@@ -24,18 +24,20 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Master Student
+role: Incoming PhD Student
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Swiss Federal Institute of Technology Lausanne (EPFL)
-    url: https://www.epfl.ch/en/
+  - name: ELLIS PhD Program
+    url: https://ellis.eu/
+  - name: IMPRS-IS, University of Stuttgart
+    url: https://imprs.is.mpg.de/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:yiw.liu@epfl.ch'
+    url: 'mailto:yiweiliu13@gmail.com'
     label: E-mail Me
   # - icon: brands/x
   #   url: https://twitter.com/AlexAIResearch
@@ -53,57 +55,52 @@ interests:
   - Cognitive Science
   - AI for Social Good
 
-# education:
-#   - area: PhD Computer Science (AI Focus)
-#     institution: Stanford University
-#     date_start: 2015-09-01
-#     date_end: 2019-06-30
-#     summary: |
-#       Thesis on _Scaling Laws for Neural Language Models_. Supervised by Prof. Andrew Ng. Published 5 papers in NeurIPS and ICML, with 2 best paper awards.
-#     button:
-#       text: 'Read Thesis'
-#       url: 'https://example.com/thesis.pdf'
-#   - area: MS Computer Science
-#     institution: Carnegie Mellon University
-#     date_start: 2013-09-01
-#     date_end: 2015-05-31
-#     summary: |
-#       GPA: 4.0/4.0
-#
-#       Specialized in machine learning and robotics.
-#   - area: BS Computer Science
-#     institution: MIT
-#     date_start: 2009-09-01
-#     date_end: 2013-05-31
-#     summary: |
-#       GPA: 3.9/4.0
-#       Minored in Mathematics. President of AI Club.
+education:
+  - area: Incoming PhD Student
+    institution: ELLIS PhD Program / IMPRS-IS, University of Stuttgart
+    summary: |
+      Advisors: Prof. Andreas Bulling and Dr. Eric Schulz. Research on world models for social intelligence, drawing on cognitive science to help AI agents reason about other agents' beliefs, intentions, and motivations.
+  - area: MSc in Digital Humanities
+    institution: École polytechnique fédérale de Lausanne (EPFL)
+    date_start: '2023-09-01'
+    date_end: '2026-10-31'
+  - area: BSc in Statistics
+    institution: Beijing Institute of Technology
+    date_start: '2019-09-01'
+    date_end: '2023-06-30'
 
 work:
-  - position: Research Intern
-    company_name: AXA GO Rev Research
+  - position: Master's Thesis / Research Intern
+    company_name: AXA GO Research
     company_url: 'https://axa-rev-research.github.io/'
     company_logo: 'axa_logo.jpg'
-    date_start: '2025-08-16'  # 加引号
-    date_end: ''
+    date_start: '2025-08'
+    date_end: '2026-08'
     summary: |
-      Supervisor: Dr. Thibault Laugel\
-      Understand better test-time intervention methods for LLMs alignment using interpretability tools like Logit Lens and PatchScopes.
+      **Master's thesis:**
 
+      Supervisors: Dr. Thibault Laugel, Pauline Baron, Dr. Xiaofu Jin, and Prof. Frédéric Kaplan.
+
+      Studied workplace GenAI use through the lens of cognitive delegation.
+
+      **Internship project:**
+
+      Supervisor: Dr. Thibault Laugel.
+
+      Evaluated LLM knowledge-editing methods and used interpretability tools such as Logit Lens and activation-space analysis to investigate their generative side effects.
 
   - position: Visiting Student
     company_name: National Institute of Informatics
     company_url: 'https://www.nii.ac.jp/en/'
     company_logo: 'NII_logo.png'
     date_start: '2024-09-26'  # 加引号
-    date_end: ''    # 加引号
+    date_end: '2025-03'
     summary: |
-      Supervisor: Prof. Saku Sugawara\
-      Evaluating LLMs' theory of mind reasoning abilities; currently exploring pragmatic reasoning methods to improve LLMs' clarification-seeking in ambiguous contexts.
+      Supervisor: Prof. Saku Sugawara.<br>Evaluated LLMs' theory-of-mind reasoning in socially nuanced conversations, including white lies.
 
   - position: Semester Project Student
     company_name: IVIA Lab, ETH Zürich
-    company_url: 'https://www.nii.ac.jp/en/'
+    company_url: 'https://ivia.ethz.ch/'
     company_logo: 'ETH_Zürich_logo.png'
     date_start: '2024-06'
     date_end: '2024-12'    # 加引号
@@ -193,15 +190,12 @@ work:
 
 
 ### About Me
-Hi! I'm Yiwei, a final-year master student at [EPFL Digital Humanities](https://www.epfl.ch/schools/cdh/research-2/dhi/). Previously, I obtained my Bachelor degree in Statistics from [Beijing Institute of Technology](https://english.bit.edu.cn/).
+Hi! I'm Yiwei, an incoming PhD student in the [ELLIS PhD Program](https://ellis.eu/), advised by [Prof. Andreas Bulling](https://www.collaborative-ai.org/people/bulling/) and [Dr. Eric Schulz](https://hcai-munich.com/eric.html). I recently graduated from [**École polytechnique fédérale de Lausanne (EPFL)**](https://www.epfl.ch/en/) with an MSc in Digital Humanities, after earning a bachelor's degree in Statistics from [**Beijing Institute of Technology**](https://english.bit.edu.cn/).
 
-I'm passionate about understanding how artificial intelligence systems work, with the goal of enable trustworthy human--AI collaboration in future agentic ecosystems. I'm particularly interested in sociotechnical challenges arising from emergent social behaviors -- such as deception and collusion in multi-agent and human--AI interactions. To address these, I study both the behavioral and mechanistic aspects of LLMs to uncover failure modes and reasoning limitations. 
-
-Currently, I'm working with [Dr. Thibault Laugel](https://thibaultlaugel.github.io/) at [Research and Advanced ML team, AXA
-](https://axa-rev-research.github.io/) using mechanistic interpretability tools to evaluate the robustness of intervention methods for LLMs. During my exchange at the [National Institute of Informatics](https://www.nii.ac.jp/en/) in Tokyo, I worked with [Prof. Saku Sugawara](https://penzant.net/) and [Dr. Emma Jane Pretty](https://scholar.google.com/citations?user=LPP8dHwAAAAJ&hl=en) on evaluating LLMs' Theory of Mind reasoning in white lie understanding. The resulting paper [TactfulToM](https://arxiv.org/abs/2509.17054) was accepted at <em class="conference-name">EMNLP 2025 (Main)</em>. Previously, at [IVIA lab, ETH Zürich](https://ivia.ethz.ch/) with [Robin Chan](https://chanr0.github.io/), under the supervision of [Prof. Frédéric Kaplan](https://people.epfl.ch/frederic.kaplan?lang=en) and [Prof. Mennatallah El-Assady](https://el-assady.com/), I was trying to better understand LLMs and human's handling of ambiguity.
+My research explores how cognitive science can inform more capable AI agents through socially aware world models. I am interested in how world models can represent the beliefs, intentions, and motivations of other agents, so that AI can reason about cooperation, deception, and strategic interaction. This connects to a broader question: what would it take for a machine to become genuinely socially intelligent?
 
 Outside research, I enjoy tennis🎾, baking🍰 and photography📷. You can see some of moments captured through my lens: [1](/uploads/photo1.jpg), [2](/uploads/photo2.jpg), [3](/uploads/photo3.jpg).
 
 <div class="info-box">
-<span class="info-icon">📢</span>Feel free to reach out! I'm currently looking for a <strong>PhD positions starting in Fall 2026</strong>. I'd love to connect if you think there's a good match!
+<span class="info-icon">📢</span>I'm always happy to chat about trustworthy AI, cognitive science, and human--AI collaboration. Feel free to reach out!
 </div>
