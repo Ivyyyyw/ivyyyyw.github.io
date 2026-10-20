@@ -192,7 +192,7 @@ work:
 ### About Me
 Hi! I'm Yiwei, an incoming PhD student in the [ELLIS PhD Program](https://ellis.eu/), advised by [Prof. Andreas Bulling](https://www.collaborative-ai.org/people/bulling/) and [Dr. Eric Schulz](https://hcai-munich.com/eric.html). I recently graduated from [**École polytechnique fédérale de Lausanne (EPFL)**](https://www.epfl.ch/en/) with an MSc in Digital Humanities, after earning a bachelor's degree in Statistics from [**Beijing Institute of Technology**](https://english.bit.edu.cn/).
 
-My research explores how cognitive science can inform more capable AI agents through socially aware world models. I am interested in how world models can represent the beliefs, intentions, and motivations of other agents, so that AI can reason about cooperation, deception, and strategic interaction. This connects to a broader question: what would it take for a machine to become genuinely socially intelligent?
+My research explores how cognitive science can inform more capable AI agents through socially aware world models. I am interested in how world models can represent the beliefs, intentions, and motivations of other agents, so that the system can reason about cooperation, deception, and strategic interaction. This connects to a broader question: what would it take for a machine to become genuinely socially intelligent?
 
 Outside research, I enjoy tennis🎾, baking🍰 and photography📷. You can see some of moments captured through my lens: [1](/uploads/photo1.jpg), [2](/uploads/photo2.jpg), [3](/uploads/photo3.jpg).
 
